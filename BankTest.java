@@ -3,6 +3,20 @@ public class BankTest {
 		BankAccount baObj1 = new BankAccount();
 		baObj1.setBankAccount(101,"Jack",90000);
 		baObj1.printBankAccount();
+		baObj1.withdraw(3000);
+		baObj1.printBankAccount();
+		
+		BankAccount baObj2 = new BankAccount();
+		baObj2.setBankAccount(102,"Jane",70000);
+		baObj2.printBankAccount();
+		baObj2.withdraw(7000);
+		baObj2.printBankAccount();
+		
+		BankAccount baObj3 = new BankAccount();
+		baObj3.setBankAccount(103,"Julie",80000);
+		baObj3.printBankAccount();
+		baObj3.withdraw(50000);
+		baObj3.printBankAccount();
 		
 	}
 }
@@ -48,6 +62,13 @@ class BankAccount
 		System.out.println("Account Number  : "+accountNumber);
 		System.out.println("Account HName   : "+accountHolderName);
 		System.out.println("Account Balance : "+accountBalance);
+		System.out.println("-----------------------");
+	}
+	double withdraw(double amountToWithdraw) {
+		System.out.println("Withdraw in progresss...");
+		accountBalance = accountBalance - amountToWithdraw;
+		System.out.println("Withdraw in done...");
+		return accountBalance;
 	}
 }
 	
