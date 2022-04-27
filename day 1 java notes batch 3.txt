@@ -1,0 +1,443 @@
+
+	Inside "java memory" an object would have
+	its state and functionality
+
+	Objects = physical state + behaviour(functionality)
+	|		|		|
+	water 		capacity	openIt() { }
+	bottles		size		closeIt() { ]
+	are		color
+	objects		material
+			brand
+			shape
+			weight
+
+	cat		color		meow() {} 
+			breed		chaseMice() { }
+			weight		jump() { }
+			height		snooze() { }
+			age
+
+	BankAccount	balance		deposit() {coding}
+			acno		withdraw() { }
+			acholder	getBalance() { }
+			acopeningdate	transfer(){ }
+			acholderaddress
+			mobilenumber
+			
+
+		
+		Java Programming Language
+
+
+	apply for a bank account
+	|
+	register with the bank
+	|
+	bank admin would approve/reject your application
+	based on the docs and other details
+	|
+	user would log in 
+	|
+	login portal - dash board 
+				|
+
+		see balance	payee	transfer
+		statement	profile   logout
+
+
+6 layers
+
+1. Database design - Oracle
+2. Plain Old Java Objects / java classes - Core Java
+	BankAccount, Cashier, Payee 
+	Address .....
+3. DAO/Repositories - - Core Java + Spring
+4. Service - business logic - Core Java
+5. Controller - Spring 
+6. UI - Angular
+
+	7 Habits of Highly Effective People
+	-----------------------------------
+
+	1. Be ProActive
+		act and influence
+
+	2. Begin with "The End" in mind
+
+	3. Put First Thing First
+
+
+	4.
+
+	5.
+	
+	6.
+
+	7.
+
+
+
+	Java Features
+	--------------------
+	1. plaform neutral
+	
+
+		Machine1	Machine2	Machine3
+		|		|		|
+  h/w		Intel/x86	Sun sparc	M1-chip
+		|		|		|
+  os		MS-Windows	Sun Solaris	Apple Mac
+		|		|		|
+  compiler	C++ Compiler -- C++ compiler	C++ compiler
+		|		|		|
+  sourcecode	First.cpp/.c  ->YES		YES
+		|		|		|
+  OBJECT	First.obj ----  First.o		First.o
+		|		|		|
+  Linker	First.exe ----- First.out	First.out
+
+	
+	Sun Microsystems
+	1991
+	GreenProject - James Gosling
+
+
+
+		Machine1	Machine2	Machine3	Machine4
+		|		|		|		|
+  h/w		Intel/x86	Sun sparc	M1-chip		new chip
+		|		|		|		|
+  os		MS-Windows	Sun Solaris	Apple Mac	new os
+		|		|		|		|
+  compiler	JVM1		JVM2		JVM3		JVM4
+		|CDPLAYER1	CDPLAYER2	CDPLAYER3	CDPLAYER4	CDPLAYER5	
+  sourcecode	First.java	
+		|		
+  OBJECT	First.class	First.class	First.class	First.class
+		(CD)
+		Write Once Run Anywhere
+
+
+
+
+
+
+
+
+
+	1. write your source code
+
+	2. notepad Welcome.java
+			|		
+			class Greetings {  main.... }
+
+	3. compile your source code
+		javac Welcome.java
+
+	4. run your class file which has the main method
+
+		java Greetings
+
+
+
+
+
+
+
+
+
+https://github.com/vishhaldawane/SBITO3/blob/main/Bank.java
+	
+
+	Naming Convention
+	------------------
+	1.ClassName	PascalCase	
+			- DriverManager
+			- ViewBalance
+			- TransactionManagement
+
+	2.methodName	- camelCase
+			- setLookAndFeel()
+			- openConnection()
+			doTrip()		
+
+	3.variableName	- camelCase
+			rollNumber
+			socialSecurityNumber
+			adhaarCardNumber
+
+	4. CONSTANT	- CAPITAL CASE
+			MAX, MIN, AVG, NORM, PI,
+			SPEED_OF_LIGHT
+
+	5. packages	always in small case
+			
+
+		Data Types
+			|
+	----------------------------------
+	|				|
+	Primitive		  Secondary
+	|
+ --------------------------------
+ |          |          |       |
+Integral Floating  Character Boolean 
+ |
+byte  1 (8)
+short 2 (16)
+int   4 (32)
+long  8 (64)
+
+
+	byte 1 = 8 bits
+
+
+	1 bit = 0	
+		1
+
+	2 bits =  0 0
+		  0 1
+		  1 0 
+		  1 1
+
+	3 bits = 8
+		  000	0
+		  001	1
+		  010	2
+		  011   3
+		  100   4
+		  101   5
+		  110   6
+		  111   7
+
+	4 bits = 16
+	5 bits = 32
+	6 bits = 64
+	7 bits = 128
+	8 bits = 256
+	9 bit = 512
+	10	1024
+	11	2048
+	12	4096
+	13	8192
+	14	16384
+	15	32767
+
+
+	<---------------------dial of a byte------------>
+	-128 -127 -125 .... -3 -2 -1 0 1 2 3 4....... 127
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Raja SriGanesh Vijay Nagarjun Sindhuri Dheeraj	Niranjan Priya Shruti	Ajay	Anand Hemant
+Nidhi
+Tuhin
+RaviPrasad
+	Vivek Chaitra Archana Janani Zainab Deepa  Neha Abhinav Tushar
+
+
+	class = design of the object
+	SavingsAccount 
+
+	object = instance of a class
+	SavingsAccount saObj = new SavingsAccount();
+
+	Cat.java
+	========
+	class Cat
+	{
+		int age;
+		String color; 
+
+		void meow() { }
+		void chaseMice() { }
+	}
+	
+	class Test
+	{
+		public static void main(String str[])
+		{
+			Cat x = new Cat();
+			Cat y = new Cat();
+			Cat z = new Cat();
+		}
+	}
+
+  ref	constructor
+    |	     |
+Cat x = new Cat();
+Account a = new Account(101,"Smith",4000);
+ |	|
+class	allocator
+   a.withdraw(500);
+   a.deposit(4500);	
+
+	stack				heap
+	|				| (free store)
+
+				DATA AREA OF CAT 
+
+				age	color
+				+---------------+
+				|	|	|
+				+---------------+
+	   +------------------->500
+	+--|-----+
+	| 500	|
+	+-------+		METHOD/FUNCTION AREA OF CAT
+	x			meow() { } |  chaseMice() { }
+	100
+
+
+				age	color
+				+---------------+
+				|	|	|
+				+---------------+
+	   +------------------->600
+	+--|-----+
+	| 600	|
+	+-------+		
+	y			
+	200
+
+
+				age	color
+				+---------------+
+				|	|	|
+				+---------------+
+	   +------------------->700
+	+--|-----+
+	| 700	|
+	+-------+		
+	z			
+	300
+
+
+		baObj2.getBalance();
+		|
+		name mangling 
+		|
+		BankAccount.getBalance(baObj2);
+		
+
+				DATA AREA OF BankAccount
+
+				account |account|account
+				Number	|Holder |Balance
+				+-----------------------+
+				|	|	|	|	
+				+-----------------------+
+	   +------------------->100
+	+--|-----+
+	| 100	|
+	+-------+		METHOD/FUNCTION AREA OF BankAccount
+	baObj1			setBankAccount(...) { }
+	500			printBankAccount(){}
+				. withdraw(.) {} 
+				. deposit(.) {} 
+				. getBalance() { }
+				
+				account |account|account
+				Number	|Holder |Balance
+				+-----------------------+
+				|	|	|	|	
+				+-----------------------+
+	   +------------------->200
+	+--|-----+
+	| 200	|
+	+-------+		
+	baObj2			
+	600			
+
+
+
+	Is "Sachin Tendulkar" an object? or class?
+
+
+	class Player
+	{
+		int age;
+		int rank;
+		
+	}	
+
+	class SachinTendulkar
+	{
+		int age;
+
+	}
+	SachinTendulkar s = new SachinTendulkar();
+	SachinTendulkar ss = new SachinTendulkar();
+	SachinTendulkar sss = new SachinTendulkar();
+
+	class Cricketer
+	{
+		int rank;
+		String cricketerName;
+
+		void setCricketer(int r, String c) {
+			rank = r;
+			cricketerName=c;
+		}
+	}
+
+	class Test
+	{
+		main() {
+			Cricketer x= new Cricketer();
+			sachin.setCricketer(1,"Sachin Tendulkar");
+		}
+	}
+
+
+	class DrawingArtist
+	{
+		void draw()
+		{
+		}
+		void sketch() { }
+		void paint() { }	
+	}
+
+
+	class Camera
+	{
+		void click()
+		{
+		}
+	}
+
+	class VideoCamera
+	{
+		void shooting() { }
+	}
+
+	class AnalogClock
+	{		
+		void tick() { }
+	}
+
+	invisible		visible
+	thinking  + feeling = act + result
+	1st			2nd
+
+
+int age;
+		int totalScore;
+		float strikeRate;
+		int numberOfODI;
+		int numberOfTM;
+		int numberOfCenturies;
+		
+
