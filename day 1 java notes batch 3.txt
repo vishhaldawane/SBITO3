@@ -441,3 +441,446 @@ int age;
 		int numberOfCenturies;
 		
 
+class A
+{
+	A() {
+		.......
+	}
+}
+
+JPL -   provides a default constructor 
+	it does nothing
+
+	either you can have implicit or explicit
+	but not  both
+
+class Account
+{
+	int acno;
+	String acname;
+	double balance;
+	float rate;
+	Account(int acno, String acname, )
+	{
+		acno = a;
+		acname = b;
+		balance = c;
+	}
+}
+
+class Joker
+{
+	Joker() //explicit no-arg constructor
+	{
+		System..sa.dfjldsafjsa
+	}
+}
+
+	Account accObj1 = new Account();
+	Account accObj2 = new Account();
+	Account accObj3 = new Account();
+	|	|	 |	  |	
+	class	ref	allocator constructor			
+
+
+
+			|		|
+			to allocate	automatically
+			the data	executed, post 
+			structure	to new keyword
+			for the 
+			object
+
+			it has the same name as of the 
+			enclosing class
+		
+			it doesnot have return type
+
+			it can take arguments
+
+			it can be overloaded
+
+	Constructor - it is used to initialize the data
+			structure 
+
+		
+------------------------------------------------------------
+
+Day 3
+
+
+	POPS
+	Procedure Oriented Programming System
+	procedure<---data
+
+	OOPS concepts
+	--------
+	Object Oriented Programming System
+	data<---procedure
+
+
+	imagine 
+	a machine
+	|
+	cloth ----------->-->--->------->--->---- Shirt
+			 |  |	|  	|	   |     
+		measure() |  cutting()sewingM()	 delivery	
+		|	make the   |    thread
+		DS|pen	cutting	 scissor needle
+		paper	diagram()		
+		m-tape	|
+			chalk
+			scale
+
+
+
+		{
+			data <--- with which procedure/function
+				it will have a contract?
+			measure() <--initialize it
+			makeCuttingDiagram() <--read it
+		}
+
+			cutting() { }
+			sewing() { }
+			delivery() { }
+		
+
+
+
+
+
+
+
+	ASSOCIATION OF THE DATA WITH ITS RELEVANT FUNCTION
+	IS KNOWN AS CONTRACT OF A CLASS
+
+	class Account
+	{
+		private double balance;
+		private String mobileNumber;
+
+		void withdraw(double a) { balance=balance-a; }
+		void deposit(doubel a) { balance=balance+a;}
+		double getBalance() { return balance; }
+		
+		void changeMobileNumber(String newNumber)
+		{
+			mobileNumber = newNumber;
+		}
+		String getMobileNumber() 
+		{
+			return mobileNumber;		
+		}	
+		void printBankAccount()
+		{
+
+		}
+	}
+
+	OOPS concepts
+
+
+	1. Abstraction
+		-it is "what is it?" part of an object
+		-hiding the complexity of an object
+		-it provides the functinality object
+		the object via simple accessible functions
+		
+		a) data abstraction
+		b) method abstraction
+		c) class abstraction
+		
+	2. Encapsulation
+		it is "how is it?" part of an object
+		binding of data with "concerned functions"
+			- keep the data as private
+
+	3. Polymorphism
+
+	ability of a business entity to have many forms
+
+		a. class extension
+		b. function overloading
+			class Phone
+			{
+				void dial(byte b) { }
+				void dial(byte b1, byte b2) { }
+				void dial(String name) { }
+				void dial(String name, String name2) { }
+				void dial(byte b, String n) { }
+				void dial(String n,byte b) { }
+
+			}
+		c. function overriding
+		d. operator overloading
+	
+
+	4. Inheritance
+
+		- ability of a business entity
+		to "acquire" the properties of 
+		"existing business entities"
+
+		class Account
+		{
+			acno,name,bal
+			wit,dep,getb,ctor
+		}
+		class SavingsAccount extends Account
+		{
+			[acno,name,bal] 
+			rate	
+			[wit,dep,getb,ctor]
+			calcSi() { }
+		}
+
+
+
+
+	5. Object communication
+
+
+
+
+
+
+
+
+
+	a. class extention
+
+		
+			Person
+			   |
+		--------------------------
+			|		|
+			Doctor		Engineer
+			|
+		------------------
+		|
+		Surgeon
+		|
+	-----------------
+	|		|
+	HeartSurgeon	NeuroSurgeon
+
+
+	
+
+		     Account
+			|acno,name,balance
+			| withdraw() { }
+		---------------------------------------------
+		|		|			|
+	SavingsAccount		CurrentAccount	CreditAccount
+		|rate		|overdraftLimit	
+		|withdraw() { }	|
+	FixedDepositAccount	|withdraw() { }
+	|maturity
+	|withdraw() { }
+
+
+
+		1 Passing Object as Parameter
+		2 Returning Object as Return Value
+
+		void fun(int i)
+		{
+		}
+	
+		int add(int i, int j)
+		{
+			int k = i+j;
+			return k;
+		}
+
+
+
+	isA - 
+		class Machine
+		{
+		}
+		class WashingMachine extends Machine
+		{
+			void wash(Cloth c)
+			{
+
+			}
+		}
+		class Test
+		{
+			main() {
+
+				Cloth x = new Cloth();
+				moon(x);
+				..
+				..
+			}
+			Account moon(Cloth y )
+			{
+				y.somechanges
+
+				Account a=new Account();
+				return a;
+			}
+		}
+
+		class Cloth { 
+			String fabric; String color; float cost; 
+		}
+
+
+
+		stack			heap
+
+				fabric	color	cost
+				--------------------------
+				|	|	|	|
+				--------------------------
+
+		+--------------->100
+		|		|
+		100 <-- value	|
+main		x		|
+-----------------------------------------------------------------
+				|
+moon		+---------------+
+		|
+		100
+		y
+
+
+				WashingMachine wm = new WashingMachine();
+
+
+
+
+
+	Four Types of class relationship
+
+		
+
+		ASSOCIATION
+		   |
+	+-----------------------+
+	|	|	|	|
+	isA	hasA	usesA	producesA
+	|	|
+aggregation	composition
+
+		class Machine { }
+		class WashingMachine extends Machine //isA
+		{
+			WashingTub wt = new WashingTub(); //hasA
+
+			producesA   usesA   usesA   usesA      		usesA
+			|		|	|	|		|	
+			Laundry wash(Cloth c, Water w, Electricity e, WashingPowder wp)
+			{
+
+			}
+
+		}
+
+	class Account { }
+	class SavingsAccount extends Account {
+		acno
+		name
+		balance
+		Statement st = new Statement();
+		Payee payee = new Payee();
+		Permission p = new Permission();
+	}
+		
+
+	class Tub { }
+	class WashingTub extends Tub { }
+
+	class Powder { }
+	class TalcumPowder extends Powder { }
+	class WashingPowder extends Powder { }
+
+	class Water{ }
+	class HardWater extends Water { }
+	class SoftWater extends Water { }
+	
+
+
+
+
+
+
+
+
+
+
+	class Heart
+	{
+		void pumping(){ }
+	}
+	class Kidney {
+
+	}
+
+	class Mammal { }
+	class Human extends Mammal
+	{
+		Heart h= new Heart(); //hasA
+		Kidney lk = new Kidney(); //hasA
+		Kidney rk = new Kidney(); //hasA
+	}
+
+	class Singer extends Human
+	{
+		Song sing(Lyrics l, Music m)
+		{
+			Song s = new Song(....l...m...);
+			s.fun(l);
+			return s;
+		}
+	}
+
+	class Magician extends Human
+	{
+		Magic doTrick(ScientificExperiment se)
+		{
+			Magic m = new Magic();
+			return m;
+		}
+	}
+
+	class Camera { 
+		void zoomIn() { }
+		void zoomOut() { }
+	}
+	class DSLRCamera extends Camera //isA
+	{
+		Lens l = new Lens();
+
+		Photo click(Scene s) {
+
+		}
+	}
+	class VideoCamera extends DSLRCamera 
+	{
+		Lens l = new Lens();
+
+		Photo click(Scene s) {
+
+		}
+		Video shoot(Scene s) {
+			...		
+			...
+			Photo p = click(s);		
+			...
+		}
+	}
+
+
+
+
+
+
+
+
