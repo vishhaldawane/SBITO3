@@ -1,6 +1,17 @@
 
 public class Banking {
 	public static void main(String[] args) {
+		BankAccount bankObjArray[] = {
+			new BankAccount(501, "Ramesh", 50000, "3820443464"),
+			new BankAccount(602, "Suresh", 60000, "3820443464"),
+		    new BankAccount(703, "Naresh", 70000, "3820443464"),
+		    new BankAccount(804, "Mahesh", 80000, "3820443464")
+		};
+		for (int i = 0; i < bankObjArray.length; i++) {
+			System.out.println(bankObjArray[i]);
+		}
+		
+		
 		BankAccount ba1 = new BankAccount(101, "Jack", 50000, "9820443464");
 		BankAccount ba2 = new BankAccount(102, "Jane", 60000, "8820443464");
 		BankAccount ba3 = new BankAccount(103, "Jill", 70000, "6820443464");
