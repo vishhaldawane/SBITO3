@@ -1,10 +1,101 @@
+//creator - creation - created
+//Painter - painting - art
+//developer - coding - code
+
+class File { }
+class WorkBook extends File //isA
+{
+	WorkSheet sheet1 = new WorkSheet();//hasA
+	
+	//returning
+		Result process(Formula f) //passing
+		{
+			Result r = new Result();
+			f.formulaLine="a+b";
+			r.ans="c";
+			return r;
+		}
+}
+class WorkSheet { 
+	Cell c1= new Cell();
+	Cell c2= new Cell();
+	Cell c3= new Cell();
+	Cell c4= new Cell();
+	Cell c5= new Cell();
+	
+}
+class Cell 
+{
+	int rowNumber;
+	String columnName;
+	
+}
+class Result { 
+	String ans;
+}
+class Formula {
+	String formulaLine;
+	
+}
+
+class Filament { }
+class Light { }
+class Electricity { }
+class Bulb
+{
+	Filament filament = new Filament(); //hasA
+	
+	Light turnOn(Electricity e) {
+		//.......
+		//...
+		Light l = new Light();
+		return l;
+	}
+}
+
+class Dance
+{
+	
+}
+class Person
+{
+	
+}
+class Dancer extends Person//isA
+{
+	Dance dancing() 
+	{
+		Dance d = new Dance();
+		return d;
+	}
+}
+class Forest
+{
+	Tree growTree() {
+		Tree t = new Tree();
+		return t;
+	}
+}
+
+class Tree
+{
+	Wood cutIt() {
+		Wood w = new Wood();
+		return w;
+	}
+}
+class Wood
+{
+	
+}
 
 public class BankAdmin {
 
 	BankAccount processApplication(Application app) {
 		
-		BankAccount ba = new BankAccount(101,"Jack",5000,"9292929292");
-		return ba;
+		BankAccount ba1 = new BankAccount(101,"Jack",5000,"9292929292");
+		
+		return ba1;
 	}
 	
 	void autherizedToChangeMobileNumber(BankAccount ref, String newNumber)
