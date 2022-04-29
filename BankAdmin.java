@@ -1,6 +1,12 @@
 
 public class BankAdmin {
 
+	BankAccount processApplication(Application app) {
+		
+		BankAccount ba = new BankAccount(101,"Jack",5000,"9292929292");
+		return ba;
+	}
+	
 	void autherizedToChangeMobileNumber(BankAccount ref, String newNumber)
 	{
 			ref.setMobileNumber(newNumber);
