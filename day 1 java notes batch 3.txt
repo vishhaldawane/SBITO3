@@ -882,5 +882,85 @@ aggregation	composition
 
 
 
+		
+
+			Association
+				|
+		---------------------------------
+		|	|	|	|
+		isA	hasA	usesA	producesA
+
+	class Object { }
+		|
+	class Person { 
+		PanCard p = new PanCard();
+
+	}
+	class Student extends Person { 
+		ReportCard r = new ReportCard();
+
+	}
+	class Employee extends Student { 
+		SalarySlip s= new SalarySlip();
+
+		Object typeMessage(Phone p)
+		{
+			p.
+		}
+
+	}
+
+
+	this.  - refers to the current class data / function
+	this() - refers to the current class constructor
+
+	super.  - refers to the nearest superclass data / function
+	super() - refers to the nearest superclass constructor
+
+
+	BankAdmin object should perform following activities
+
+		1. change mobile number in account object
+		2. change account holder name in account object
+		3. deposit amount in account object
+		4. withdraw amount from account object
+	
+
+
+	class Weapon
+	{
+	}
+	class Gun extends Weapon
+	{
+		Bullet fire() {
+		}
+	}
+	
+
+			field		method		class
+	--------------------------------------------------------
+	static		shared		to deal
+			data across	with other
+			the objects	static
+					members
+	--------------------------------------------------------	
+	final
+	--------------------------------------------------------
+	abstract
+	--------------------------------------------------------
+
+
+
+	static is known as class's data
+
+	it is not of object's data
+
+--------------------
+
+		
+
+
+
+
 
 
