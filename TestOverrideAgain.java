@@ -2,7 +2,7 @@ public class TestOverrideAgain {
 //Object slicing....
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Person  f = new Founder();
+		Founder f = new Founder();
 		f.breathIn();
 		f.breathOut();
 		f.fear();
@@ -35,9 +35,18 @@ class Tree extends LivingBeing
 {
 	
 }
+class Heart
+{
+	void pumping() { }
+}
+class Death {
+	
+}
 class Animal extends LivingBeing
 {
-	void fear() {
+	Heart h = new Heart(); //hasA
+	
+	void fear(Death d) {
 		System.out.println("fear of death...");
 	}
 	void eat() {
@@ -64,7 +73,7 @@ class Reptile extends Animal
 }
 class Human extends Mammal
 {
-	void think() {
+	Idea think(Thought t) {
 		System.out.println("Human is thinking.....");
 	}
 }
@@ -76,7 +85,7 @@ class Person extends Human
 }
 class Student extends Person
 {
-	void study() {
+	Result giveExam(ExamPaper e) {
 		System.out.println("Student is studying...");
 	}
 }

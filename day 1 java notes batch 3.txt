@@ -1078,15 +1078,16 @@ dynamic polymorphism X
 3 StringBased	   AirBased	     SurgicalMedical	Pathalogical
  MusicalInstrument  MusicalInstrument MedicalInstrument	MedicalInstrument
 	|tuneStr();	  |blow();	   |sterilize	 |read(); electricitySupply();scan();
------------------	--------------	  ---------	------------------
-|	|	|	|   |	     |	  |      |  	|    	   |	|
+-----------------	----------------  ---------	------------------
+|	|	|	|   |	       |   |      |  	|    	   |	|
 4 Guitar Violin  Sitar Flute Saxophone Bag Needle Cutter GlucoMeter MRI	CTScanner
-  |	    |
+  |	    |			      Pipe
 5 Electronic Cello
-Guitar				    Pipe
+Guitar				    
 
-
-
+2. innovate final keyword, field, method, class
+3. innovate method overriding 
+4. appply association in - TestOverrideAgain.java
 
 
 
