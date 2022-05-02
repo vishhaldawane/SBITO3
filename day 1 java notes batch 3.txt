@@ -1088,6 +1088,187 @@ Guitar
 2. innovate final keyword, field, method, class
 3. innovate method overriding 
 4. appply association in - TestOverrideAgain.java
+	
+			inheritance
+			|
+		------------------------
+		|			|
+	derivation		implementation
+				(mandates)
+				abtract/interfaces
+	A			A	I
+	|			|	|
+	B			B	B
+	Account
+	|withdraw(){}
+	Savings
+	|withdraw(){}
+
+	abstract class
+		partial contract of a class
+		it may have abstract methods
+
+		it may have non-abstract methods too
+
+	interface
+	----------
+		"pure partial" contract of a class
+
+	
+	The fundamental unit of JPL is to write  class
+	The fundamental unit of OOPS is to write  a pure type
+
+	interface Reactive
+	{
+		void react();
+	}
+	interface Responsive
+	{
+		void reponse();
+	}
+	interface Proactive
+	{
+		void proact();
+	}
+	class Person extends Human implements Reactive, Responsive, Proactive
+	{
+
+	}	
+
+
+
+
+
+
+
+
+
+
+
+	single
+
+	A
+	|
+	B
+
+	multi level
+
+	A
+	|
+	B
+	|
+	C
+
+
+	multiple level
+	
+	Object		P(i)
+	|11		|5		
+	X	 A(i)	Q(c) <-- not possible
+	|5+3(a)  |3	|5
+	Y(c)	 B(i)	R(i)
+	|6	 |5	|5
+	-----------------
+	|
+	Z(45+5)
+	|
+	D
+	
+
+		Z z =new Z();
+		R r = new Z();
+		Q q = new Z();
+
+	
+
+
+
+
+	Packages and Access Specifiers
+
+	
+
+
+		Packages = directories/folders
+		|		|
+		java		operating system
+
+	jungle.river		jungle\river
+	jungle.cave		jungle\cave
+	jungle.tree		jungle\tree
+
+		to organize the relevant classes 
+
+		PackageProject
+			|
+		------------------------------------------------------------
+			|					|
+			src					bin
+			|					|
+			jungle <-- main folder			jungle
+			|					|
+	--------------------------------------			--------------
+	|	|	|	|					|
+	river	cave	tree	use	 <--- child folders		river
+	|	|	|	|					|
+      Fish	|	|	|
+  Crocodile	Tiger  Parrot	TestProgram			Crocodiel.class
+  Allegator	Lion   Monkey	  main() { 
+  |	   WhiteTiger    jump(){}	Monkey m = new Monkey();	
+ crawl()	|			m.jump();
+		roar(){}
+   |
+Crocodile.java
+-------------
+package jungle.river; <-- must be the first statement 
+class Crocodile { }
+
+Allegator.java
+---------------
+package jungle.river;
+class Allegator
+
+
+TestProgram.java
+----------------
+package jungle.use;
+
+import jungle.river.Crocodile;
+import jungle.river.Allegator;
+import jungle.cave.Tiger;
+import jungle.tree.Monkey;
+
+class TestProgram
+{
+	main() {
+		Crocodile c = new Crocodile();
+		Allegator a = new Allegator();
+	}
+}
+
+  
+
+
+
+
+
+		1.         <-- it is known as default
+			   <-- it is available only in that
+				 folder
+		2. public <-- available to the internet
+		3. private <-- only within the class body
+
+		4. protected
+			|
+	--------------------------------------------------------------
+	|river		|river			|cave		|tree
+	in the same	in the same		in the diff	in the diff
+	pacakge		package			package		pacakge
+	|		|			|		|
+	to the child	to the non-child	to the child	to the non-child
+	|		|			|		|
+	Allegator	Fish			Allegator	Fish 
+								(not accessible)
 
 
 
