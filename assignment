@@ -1,0 +1,4 @@
+1. explore custom exceptions
+2. integrate the association on Founder, Director, Animal, Human etc example. TestOverrideAgain.java u will find the source code
+3. break down these classes across pacakges
+4. methods in them would take interface as an argument and interface as return type too.
