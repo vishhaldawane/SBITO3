@@ -1275,6 +1275,147 @@ class TestProgram
 
 
 
+	Handling "run time error" - Exceptions
+
+				
+			error
+			|
+	----------------------------------------------------
+	|	  |		|	    |		|
+	Syntax	 Exceptions	library	  fatal		logical
+	|	  |		|	   |		|
+	compile  runtime	missing   JVMError	Developer
+				library		     4+4 or 4X4
+		
+
+
+
+		checked		unchecked
+		|		|
+	verified by the		ignored by the compiler
+	compiler		verified at the runtime env.
+
+
+			Throwable
+			    |	
+		--------------------------
+		|			|
+		Error		  Exception
+					| "checked"
+		----------------------------------
+		|
+	RuntimeException
+		| "unchecked"
+----------------------------------
+  |
+ArithmeticException
+
+	class Car
+	{
+		void longDrive() throws StepneyException, DocsException, FuelException, AirPressureException
+		{
+			if...
+			throw new StepneyException();
+
+			if...
+			throw new DocsException();
+
+
+			if...
+			throw new RedSignalDisHonouredException
+
+			if...
+			throw new TrafficJamException();
+
+			if...
+			throw new FuelException();
+
+			..
+
+			if...
+			throw new AirPressureException();
+			...
+		}
+		void shortDrive()
+		{
+		}
+	}
+
+
+	try
+	{
+		business logic code
+	}
+	catch(ExceptionHandler handler1) { }
+	catch(ExceptionHandler handler2) { }
+	catch(ExceptionHandler handler3) { }
+	catch(ExceptionHandler handler4) { }
+	finally {
+		
+	}
+	
+
+	finally 
+
+
+	void transfer(SA s, SA t, float amt)
+	{
+		if(t.found()) {
+			if(s.found()) {
+				if (s.getBal() > amt) {
+					s.withdraw(amt);
+					t.deposit(amt);
+				}
+				else
+					sop("Insuff bal");
+			}
+			else
+				sop(s not found)
+		}
+		else 
+			sop(t not found)
+	}
+
+
+	void transfer(SA s, SA t, float amt)
+	{
+		try
+		{
+			t.found()
+			s.found()
+			s.withdraw(amt);
+			t.deposit(amt);
+		}
+		catch(if the s.getBal < amt) {
+			sop("Insuff bal");
+		}
+		catch(if t not found) {
+			sop("Target not found");
+		}
+		catch(if s not found) {
+			sop("Source not found");
+		}
+
+
+
+
+
+
+
+
+	String str="SBI";
+	Sop("character at 5th location:"+str.charAt(5));
+
+	String str2=null;
+	Sop(str2.toUpperCase());
+
+	int array[]={10,20,30};
+	Sop("arrays 5th value : "+array[4]);
+
+
+
+
+
 
 
 
