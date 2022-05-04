@@ -1,17 +1,24 @@
 package animal.mammal;
 
-public class Dog {
+import animal.exceptions.DogAgeExceededException;
+import animal.exceptions.DogAgeNegativeException;
+import animal.exceptions.DogNameException;
+
+public class Dog extends Mammal {
 	
 	private int age;
 	private String name;
 	
-	public Dog(int age, String name) {
+	public Dog(int age, String name) throws DogAgeExceededException, DogAgeNegativeException, DogNameException
+	{
 		System.out.println(">Dog ctor started...");
 		if(age > 14) {
-			throw new RuntimeException("Dog's age cannot exceed 14");
+			//throw new RuntimeException("Dog's age cannot exceed 14");
+			throw new DogAgeExceededException("Dogs age cannot exceed 14");
 		}
 		else if( age < 0 ) {
-			throw new RuntimeException("Dog's age cannot be in negative");
+			//throw new RuntimeException("Dog's age cannot be in negative");
+			throw new DogAgeNegativeException("Dog's age cannot be in negative...");
 		}
 		else {
 			System.out.println("Setting age...");
@@ -23,7 +30,9 @@ public class Dog {
 			this.name = name;
 		}
 		else {
-			throw new RuntimeException("Invalid characters in Dog's name");
+			//throw new RuntimeException("Invalid characters in Dog's name");
+			DogNameException dogAgeEx = new DogNameException("Invalid characters found in the Dog's name");
+			throw dogAgeEx;
 		}
 			
 		System.out.println(">Dog ctor finished...");
