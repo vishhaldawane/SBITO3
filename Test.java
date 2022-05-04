@@ -1,104 +1,53 @@
-
+interface MyRunnable {
+	void run();
+}
+class Vehicle implements MyRunnable {
+	MyRunnable r; // either Vehicle or Person
+	
+	public Vehicle() {
+		System.out.println("Vehicle()");
+	}
+	Vehicle(MyRunnable r) {
+		System.out.println("Vehicle(MyRunnable )");
+		this.r = r;
+	}
+	public void run() {
+		System.out.println("Vehicle is running....");
+	}
+	public void start() {
+		System.out.println("Starting vehicle.....");
+		if(r==null)
+			run();
+		else
+			r.run();
+	}
+}
+class Car2 extends Vehicle {
+	public void run() {
+		System.out.println("Car is running.....");
+	}
+}
 public class Test {
-
 	public static void main(String[] args) {
-		
-		Calculator calc= new Calculator();
-		calc.fun1();//1
-		
-		calc.fun2(120, 50); //2
-		
-		int ans = calc.fun3(350, 30); //3
-		System.out.println("ans "+ans);
-		
-		int output = calc.fun4();
-		System.out.println("output "+output);
+		Car2 c = new Car2();
+		c.start();
+		System.out.println("-----------------");
+		Person p= new Person(); //MyRunnable r = new Person();
+		Vehicle v = new Vehicle(p);
+		v.start();
 	}
-
 }
-// 
-class Calculator
+
+class Human 
 {
-	public void fun1() {
-		int x=100;
-		int y=20;
-		int z=x+y;
-		System.out.println("x is "+x);
-		System.out.println("y is "+y);
-		System.out.println("z is "+z);
-		System.out.println("-------------------");
-	}
-	public void fun2(int x, int y) {
-		int z=x+y;
-		System.out.println("x is "+x);
-		System.out.println("y is "+y);
-		System.out.println("z is "+z);
-		System.out.println("-------------------");
-	}
-	public int fun3(int x, int y) {
-		int z=x+y;
-		System.out.println("x is "+x);
-		System.out.println("y is "+y);
-		System.out.println("-------------------");
-		return z;
+	void think() { }
+}
+class Person extends Human implements  MyRunnable
+{
+	void talk() {
 		
 	}
-	public int fun4() {
-		int x=100;
-		int y=90;
-		int z=x+y;
-		System.out.println("x is "+x);
-		System.out.println("y is "+y);
-		System.out.println("-------------------");
-		return z;
-		
+	public void run() {
+		System.out.println("Person is running....");
 	}
 }
-
-/*
- 		returnType	nameOfTheFunction(arguments/paramters)
- 		{
- 			body of the function
- 			/task of the function/
- 			 TODO
- 		}
- 		
-  Four types of functions in the programming languages
-
-  1. function without arguments/parameters
-  	 and without return value
-  	 	void add()
-  	 	{
-  	 	
-  	 	}
-  	 	
-  2. function with arguments/parameters
-  	 BUT without return value
-  	 
-  	 	void add(int x, int y)
-  	 	{
-  	 	
-  	 	}
-  	 	
-  3. function with arguments/parameters
-  	 AND with return value
-  	 
-  	 	int add(int x, int y)
-  	 	{
-  	 	
-  	 	}
-  	 	
-  4. function without arguments/parameters
-  	 BUT with return value
-  	 
-  	 	int add()
-  	 	{
-  	 	
-  	 	}
-  	 
-*/
-
-
-
-
-
