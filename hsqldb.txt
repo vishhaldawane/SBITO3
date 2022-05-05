@@ -1,0 +1,2 @@
+TO START THE HSQLDB SERVER -> java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:mydb --dbname.0 xdb
+TO START THE HSQLDB INTERFACE -> jar -jar hsqldb.jar
