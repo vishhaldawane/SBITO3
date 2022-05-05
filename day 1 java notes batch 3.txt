@@ -1488,7 +1488,7 @@ count	50 notes		140			4
 	MyRunnable r = new Vehicle();
 	MyRunnable r = new Person();
 
-			MyRunnable	  Human 
+			MyRunnable(i)	  Human 
 			|run();		    |think() { }
 	---------------------------------   |	
 		|			|   |
@@ -1499,7 +1499,7 @@ count	50 notes		140			4
 	------------------
 	|
 	Car
-	run()  { }
+	run()  { your running code }
 
 	c.start();
 
@@ -1517,6 +1517,18 @@ count	50 notes		140			4
 	|	|	|	
 	Car	Truck	Rail	
 	run(){} run(){} run(){}
+
+
+	c.start();
+	t.start();
+	r.start();
+
+	MyFrame f = new MyFrame();
+
+	Thread t = new Thread(f);
+	t.start();
+
+	f.start();
 
 
 	Thread synchronization
@@ -1537,7 +1549,144 @@ count	50 notes		140			4
 	7. security management - TLS - https
 
 
+	Collection f/w
+
+		Collection = Bag / Sac / Container
+
+
+			X - data type - ButterMilk
+			|	      - FriedRice 
+			|	      - Fruits
+			|	      - Noodles
+			|	      - Pickle
+			|	      - CoconutWater
+	    Y---------------------------Z
+	    |		|		|
+	Container	I		Algorithm
+	|		|		|
+	Glass	     Iterator		drink() { }
+	Plate		|		eat() { }
+	Bowl	      Straw		eat() { }
+	Bowl	      Spoon		eat() { }
+	Coconut	      Fork		lick() { }
+		      Chopstick
+			
+		
+
+
+			Collection
+			  |
+			  |
+		--------------------------------
+		|			|
+		List			Set
+		|duplicate		|unique
+	-----------------	--------------------
+	|		|	|		|
+	ArrayList  LinkedList	TreeSet		HashSet <-- containers
+	|		|	|		|
+	logs	 phone book	chemical	books
+	|		|	elements		
+	|		|
+	appends		|
+	data 
+	at the 
+	end
+			efficiency / flexibility
+			
+			space and time complexity
+		
+
+			V A   K O G technique
+			| |   | | |
+			| |   | | Mouth
+			| |   | Smell
+			| |   |
+			| ear skin
+			eye
 
 
 
+	
+
+
+		+-------------+
+		|null+59+100  |
+		+-------------+
+		1500
+
+
+		+-------------+
+		|1500l+59+800  |
+		+-------------+
+		100
+
+		+------------+
+		|100+70+600  |
+		+------------+
+		800
+
+		+-------------+
+		|800+58+400  |
+		+-------------+
+		600
+
+		+-------------+
+		|800+89+700 |
+		+-------------+
+		400
+
+		+-------------+
+		|400+21+null  |
+		+-------------+
+		700
+
+
+
+
+		A	B	C	D
+	1	data	data	data	data
+	2
+	3
+	4
+	5
+	6.
+	.
+	.
+	.
+	.
+
+	
+
+
+		100,50,30,60,17  ,32,44,9,4,83;
+
+		 0	1     	2	3	4	5	6	7	8	9	10
+		-----------------------------------------------------------------------------------------
+		|100	|50	|30	|60	|17	|32	|44	|9	|4	|83	|34	|
+		-----------------------------------------------------------------------------------------
+		score
+
+
+		score[5]
+
+
+CREATE TABLE BANK_APPLICANT
+(
+   APPLICANT_ID  INT PRIMARY KEY,
+  APPLICANT_NAME VARCHAR(20),
+  APPLICANT_EMAIL_ADDRESS VARCHAR(50),
+  APPLICANT_ADDRESS VARCHAR(50),
+  APPLICANT_MOBILE_NUMBER VARCHAR(15),
+  APPLICANT_DOB DATE
+)
+
+INSERT INTO BANK_APPLICANT 
+VALUES (
+123,
+'JACK',
+'jack@gmail.com',
+'Belpaur',
+'9239239230',
+'1991-12-05')
 
