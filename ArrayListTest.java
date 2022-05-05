@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
 public class ArrayListTest {
 	public static void main(String[] args) {
 
@@ -58,6 +62,33 @@ public class ArrayListTest {
 		
 		
 		System.out.println("End of main ");
+		
+		ArrayList team = new ArrayList();
+		System.out.println("Container is ... created....");
+		
+		int choice =0;
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Adding elements....");
+		do {
+			System.out.println("Enter score : ");
+			int num = scan.nextInt();
+			team.add(num);
+			
+			System.out.println("Enter choice as 0 to continue adding.....");
+			choice = scan.nextInt();
+		}while(choice==0);
+			
+		System.out.println("Added elements....");
+		
+		Iterator iter = team.iterator();
+		
+		while(iter.hasNext()) {
+			Integer iValue = (Integer) iter.next();
+			System.out.println(" value is "+iValue);
+		}
+		
+		
+		
 	}
 }
 /*
