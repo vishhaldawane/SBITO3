@@ -1,0 +1,99 @@
+
+
+	I 	prospect	
+	 1.	Apply For Bank Account - applicant role
+			application submitted mail must
+			/acknowledgement mail with 
+			a number must be sent
+
+	 2.	login to see the status of the appliction
+	----------------------------------------------
+	II  	bank admin 
+	3	-can view all the applicants/prospects
+		-can approve/reject the applicant
+		-rejection mail with reason to be mailed
+		to the customer
+		-approval mail is send to the customer
+		-can filter the applicant records based on 
+		applied/inprogress/verification/approved/rejected
+	----------------------------------------------
+	III
+		customer login (once s(he) was the applicant)
+		4. can see the dashboard
+		   can view the balance of multiple accouts
+		   can view the profile
+		   can apply for changing registerd mobile number
+		   can edit acceptable fields in the profile
+		   change in mobile number must be mailed
+		   to the customer
+		   fund transfer 
+
+	IV.	payee management [ SINDHURI ]
+		5. add payee
+		   view payee
+		   view all payees
+		   delete a payee
+			- payee of the same bank/branch
+			- payee of the different bank/branch
+
+		payee addition/deltion must be mailed
+		to the customer
+			
+
+	V.	statement management
+
+		6. view statement based on ranged dated
+		   by month
+		   by quarter 
+		   by fiscal
+		   by dt/cr/amt
+
+		   statement can be mailed to the customer
+		   in the PDF/excel format
+
+	
+
+
+		
+
+	1. Sindhuri [ PAYEE MANAGEMENT ]
+		Ajay,Vijay,Neha,Nagarjun
+		
+	2. Deepa [ REGISTRATION AND LOGIN ]
+		Anand, Abhinav, Sruthi, Nidhi
+
+	3. Archana [ STATEMENT MANAGEMENT ]
+		Vivek, Priya, Janani
+
+	4. Tushar [CUSTOMER DASHBOARD MANAGEMENT ]
+		Dheeraj, Hemant, Tuhin, Zainab
+
+	5. Niranjan [ BANK ADMIN ]
+		Shriganesh,Ravi Prasad ,Chaitra, Raja
+
+
+
+
+
+
+	DB		
+	|
+	ORM
+	SPRING
+	|
+	@Table(name="app_tbl")
+	class Applicant		DB
+	{			|
+	}	@Table(name="apptbl")
+	|	class Applicant_detail
+	|	{
+	|	}
+	TEAM1	TEAM2	TEAM3	TEAM4	TEAM4
+
+
+
+
+
+
+
+
