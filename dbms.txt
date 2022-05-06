@@ -1,0 +1,41 @@
+		 10 ACCOUNTING     NEW YORK
+			KING <-- OWNS A COMPNAY - SPORT PRODUCT FACTORY
+			|7839 PRESIDENT 5000
+		-------------------------------------------------
+		|			|20 RESEARCH		|30 SALES
+		CLARK			JONES			BLAKE
+		|MANAGER 2450		|7566|2975		|	<-------SALESMAN--------->
+		MILLER		-----------------		----------------------------------
+		|CLERK 1300	|		|		|	|7521	|7499	|7654	|7844	
+				FORD		SCOTT		JAMES	WARD	ALLEN	MARTIN	TURNER
+				|3000		|3000		|CLERK	1250	1600	1250	1500
+				SMITH		ADAMS			500	300	1400	0
+				|800		|1100
+
+
+
+	DEPT 
+	DESC DEPT;
+
+CREATE OR REPLACE VIEW SALES_VIEW
+AS
+  SELECT * FROM PRODUCT 
+  WHERE PRODID IN (
+            SELECT PRODID FROM ITEM 
+            WHERE ORDID IN (
+                     SELECT ORDID FROM ORD 
+                     WHERE CUSTID IN (
+                               SELECT CUSTID FROM CUSTOMER 
+                               WHERE REPID IN (
+                                        SELECT EMPNO FROM EMP 
+		                        WHERE DEPTNO=
+                                             (SELECT DEPTNO FROM DEPT WHERE LOC='CHICAGO')
+         AND JOB='SALESMAN' AND ENAME='MARTIN'))));
+	
+
+
+
+
+
+
+
