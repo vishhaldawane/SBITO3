@@ -1690,3 +1690,337 @@ VALUES (
 '9239239230',
 '1991-12-05')
 
+
+	Database normalization
+	----------------------
+
+	decomposing the abnormal data
+	into a normal form
+
+	1. first NF - getting the abnormal data and finding out
+		      redendencies
+			CRUD challanges
+
+	2. second NF - find out functional dependencies
+		and create seperate tables for them
+		AND REMOVE DUPLICATE RECORDS
+
+	3. third NF - find out transitive dependencies
+		AND CREATE SEPERATE TABLE FOR THEM
+		AND REMOVE DUPLICATES
+
+
+	4. fourth NF - BCNF - intentional redundency
+
+
+	A=10
+	B=A
+	C=B
+
+
+
+	-----------------------------------------
+	DQL -   data query
+		select
+
+	DDL -  data defn
+		table creation/alter/drop/rename
+		adding the column, modifying columns
+		renaming column
+
+	DML - data manipulation
+		insert update delete
+
+	TCL - transaction control
+		commit and rollback, savepoint
+
+	DCL - data control
+		grant and revoke
+
+
+	DDL
+		create table
+		rename table
+		alter table
+		truncate table
+		drop table
+
+	
+	create table tablename
+	(
+		colname  datatype,
+		colname  datatype,
+		colname  datatype
+	)
+	number
+	number(9,2)
+	date
+	char(10)	- |May   |
+	varchar(2000)	
+	varchar2(4000)
+
+
+	create table 
+
+
+	constraints
+	--------------
+		validation rules on the table
+
+
+	1. not null
+		column must not be empty
+	2. unique constraint
+		column must have unique values, it may have nulls
+
+	3. integrity constraint
+		primary key = unique + not null
+		a table can have only one pk
+
+	4. check constraint
+		check the column against some rule
+
+	5. referential integrity constraint
+			foreign key column
+		checking the column towards/against
+		the values present in other column of the same
+		table or other table (in its primary or unique key)
+
+	STUDENT
+	-----------
+	referred column
+	|
+	roll	name	lname	mname	age
+	1	Amit
+	2	Bharat
+	3	Chirag
+
+	SUBJECT_MARKS		referring column
+	-----------------	 |
+	phy	chem	maths	rno	Sem
+	90	89	99	1	I
+	95	86	98	1	II
+	96	87	90	1	III
+	97	90	100	1	IV
+
+	95	80	98	2	I
+	96	87	97	3	I
+
+
+
+
+
+
+	
+			constraints
+			|
+		----------------------------
+		|			|
+	column level			table level
+	|				|
+	alongwith the column		after the table construction	
+
+
+
+    create table bank_applicant2
+    (
+       applicant_id number primary key ,
+       applicant_name varchar2(20) not null,
+       applicant_email varchar2(20) unique,
+       applicant_phone varchar2(10) not null,
+       account_applied_for varchar2(15) check 
+  (account_applied_for  in('Savings','Current','Credit','Fixed')),
+       application_status varchar2(10) default 'Applied'
+    );
+
+	create table bank_account
+	(
+	   account_number number primary key,
+	   account_opening_date  date not null,
+	   account_balance number not null,
+	   cust_id number references bank_applicant2(applicant_id)
+	);
+
+insert into bank_applicant2
+ (applicant_id,applicant_name, applicant_email,
+   applicant_phone,account_applied_for) 
+  values (4,'Robert','robert@gmail.com','5656787890','Fixed');
+
+
+
+
+
+
+
+	-unique constraint (SYSTEM.SYS_C007636) violated
+	-unique constraint (SYSTEM.SYS_C007637) violated
+	-cannot insert NULL into
+	("SYSTEM"."BANK_APPLICANT2"."APPLICANT_NAME")
+	 check constraint (SYSTEM.SYS_C007635) violated
+	
+
+
+	create table payee
+	(
+	  payee_account_number number references 
+			bank_account(account_number),
+	  payee_name varchar2(20) not null,
+	  payee_nick_name varchar2(20) not null,
+	  payee_limit number not null,
+	  app_id number references bank_applicant2
+	);
+
+
+					
+	623623	Jane1  Jane1	50000   1
+	723723  Jane2  Jane2	50000   1
+
+
+
+
+
+
+	4th generation time table
+
+	7th May 2022
+
+		|	imp	|	not imp
+	========|==========================================
+	urgent	|ipl,bday party	|
+		|picnic ...	|
+	---------------------------------------------------
+	not 	|		|	project
+	urgent	|		|	java study, project 
+		|		|	demo
+	---------------------------------------------------
+
+
+	1 - db 	---- payee
+
+	2 - pojo - entities
+	3 - repository - hibernate
+	
+	4	service layer - actual busines logic for banking
+		
+	5- spring controller
+
+	6-UI
+		 1 jane 
+		 |
+		----------
+		|	|
+		623623	723723
+
+		add a payee
+		|
+		623623	 [ Add payee ]		
+
+
+
+		DAO design pattern
+		|
+	DATA ACCESS OBJECT
+
+	
+
+	dao interface	<------- pojo
+	|
+ dao interface implemention
+				test program to test it
+
+	@Table(name="bank_applicant");
+	class Applicant
+	{
+		6 fields as per the db table columns
+
+		@Id
+		@GeneratedValue
+
+		private int applicantNumber; //applicant_id
+		private String applicantName; // applicant_name
+
+		private String emailAddress; // applicant_email_address
+		private String address; //applicant_address
+		private String mobile; //applicant_mobile_number
+		private Date birthdate; //applicant_dob;
+
+	}
+
+
+
+update bank_applicant2
+    set applicant_dob='12-May-2001',
+    applicant_address='Panvel'
+    where applicant_id=1;
+
+update bank_applicant2
+     set applicant_dob='10-Jan-2003',
+     applicant_address='Sea-Woods'
+     where applicant_id=2;
+
+update bank_applicant2
+     set applicant_dob='13-Jun-1992',
+     applicant_address='Nerul'
+     where applicant_id=3;
+
+
+update bank_applicant2
+     set applicant_dob='10-Feb-1993',
+     applicant_address='Vashi'
+     where applicant_id=4;
+
+
+
+
+
+	create table dept
+	(
+		deptno int,
+		dname varchar(20);
+		loc varchar(20);
+	);
+	insert into dept values (10,'IT','NY');
+	insert into dept values (20,'SALES','NJ');
+	insert into dept values (30,'PURCHASE','ND');
+
+	create table emp
+	(
+		empno int,
+		ename varchar(20),
+		job varchar(20),
+	);
+	insert into EMP values (101,'JAY','MANAGER');
+	insert into EMP values (202,'VIJAY','PRESIDENT');
+	insert into EMP  values (303,'AJAY','ANALYST');
+
+
+	create table flight
+	(
+		flightno int,
+		flightname varchar(20);
+		source varchar(20);
+	);
+	insert into flight values (5101,'Lufthansa','Germany');
+	insert into flight values (6202,'Emirates','Dubai');
+	insert into flight values (7303,'Air India','New Mumbai');
+
+
+
+
+10	ACCOUNTING	NEW YORK
+20	RESEARCH	DALLAS
+30	SALES	CHICAGO
+40	OPERATIONS	BOSTON
+
+101	JAY	MANAGER
+202	VIJAY	PRESIDENT
+303	AJAY	ANALYST
+
+5101	Lufthansa	Germany
+6202	Emirates	Dubai
+7303	Air India	New Mumbai
+
+
+
+
+
