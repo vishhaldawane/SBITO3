@@ -14,9 +14,13 @@ public class TestDAO {
 			System.out.println("BankApplicant Name "+bankApplicant.getApplicantName());
 		}
 		System.out.println("-----------");
+		
+		
 		BankApplicant  baObj = bad.findBankApplicantById(2);
 		System.out.println("BankApplicant Name "+baObj.getApplicantName());
 		System.out.println("-----------");
+		
+		
 		//bad.deleteBankApplicantById(4);
 		System.out.println("-----------");
 		
@@ -37,18 +41,52 @@ public class TestDAO {
 		
 		
 	}
-	/*@Test
+	
+	BankApplicantDAO bad = new BankApplicantDAOImpl();
+	
+	@Test
 	public void testSelect() {
 		System.out.println("test select case is running.....");
+		BankApplicant  baObj = bad.findBankApplicantById(2);
+		System.out.println("BankApplicant Name "+baObj.getApplicantName());
+		System.out.println("-----------");
+		
+	
 	}
+	
 	@Test
 	public void testSelectAll() {
 		System.out.println("test select all case is running.....");
+		
+		List<BankApplicant> baList = bad.findAllBankApplicants();
+		for (BankApplicant bankApplicant : baList) {
+			System.out.println("BankApplicant Name "+bankApplicant.getApplicantName());
+		}
+		System.out.println("-----------");
+		
+	
 	}
 	@Test
 	public void testUpdate() {
 		System.out.println("test update case is running.....");
+		BankApplicant baObj2 = new BankApplicant();
+		baObj2.setApplicantNumber(3);
+		baObj2.setAddress("Kolkatta");
+		baObj2.setMobile("8888");
+		baObj2.setApplicantName("JULIe");
+		baObj2.setApplicationStatus("APPROVED");
+		baObj2.setEmailAddress("JULIe@gmail.com");
+		baObj2.setAppliedFor("Fixed");
+		String str="1994-10-06";
+		Date d = Date.valueOf(str);
+		baObj2.setBirthdate(d);
+		
+		bad.updateBankApplicant(baObj2);
+		
+	
 	}
+	
+	
 	@Test
 	public void testInsert() {
 		System.out.println("test insert case is running.....");
@@ -56,5 +94,5 @@ public class TestDAO {
 	@Test
 	public void testDelete() {
 		System.out.println("test delete case is running.....");
-	}*/
+	}
 }
