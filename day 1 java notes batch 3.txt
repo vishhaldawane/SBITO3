@@ -2024,3 +2024,206 @@ update bank_applicant2
 
 
 
+
+		database
+		table
+		 |
+		ORM --- mapping		framework
+		|
+		java
+		object
+
+
+		Hibernate
+
+	insert	into	TABLE	values	?????????????
+	select	* 	FROM TABLE ... WHERE ....
+	update TABLE set ....
+	delete from TABLE where....
+
+
+			DM.registerDriver
+			DM.getConnection
+			conn.createStatement - SELECT
+			conn.prepareStatement - DML
+
+	SessionFactory		EntityManagerFactory
+	Session			EntityManager
+	
+			JPA	<-- Instrument
+			|
+		----------------------------
+		|	|	|	|
+	Hibernate    TopLink	..	..
+
+
+
+
+		3 things
+
+
+	1. pojo		2. emf em et			3. test class
+	Flight		   META-INF/persistence.xml
+					|
+				driver
+				url
+				username
+				password
+				dialer - 
+
+
+	select  flight0_.flno as flno1_0_0_, 
+		flight0_.flight_arr_time as flight_arr_time2_0_0_, 
+		flight0_.flight_dept_time as flight_dept_time3_0_0_, 
+		flight0_.flight_dest as flight_dest4_0_0_, 
+		flight0_.flight_name as flight_name5_0_0_, 
+		flight0_.flight_source as flight_source6_0_0_, 
+		flight0_.flight_tkt_cost as flight_tkt_cost7_0_0_, 
+		flight0_.passengers_count as passengers_count8_0_0_ 
+		from flight_info flight0_ 
+		where flight0_.flno=?
+
+	Relationships
+	----------------
+
+
+	one to one
+		One Applicant	<--> One PanCard
+
+	one to many
+		One Customer <--> Many BankAccounts
+
+	many to many
+		one customer   <---> many subscriptions
+		many customers <---> one subscription
+		many customers <---> many subscriptions
+	
+
+	create table emp2
+	(
+		empno number primary key,
+		name varchar2(20) not null,
+		email varchar2(20) unique,
+		age number check (age >=18),
+		comm number,
+		sal number,
+		check (comm < sal),
+		check (sal > comm)
+	);
+
+	create table student3
+	(
+		rollno number,
+		name varchar2(20) not null
+		email varchar2(20),
+		age number,
+		primary key (rollno),
+		unique(email),
+		check (age >=18)
+	);
+
+
+create table pancard
+  2  (
+  3     panNumber varchar2(20) primary key,
+  4     nameOnThePan varchar2(20) not null,
+  5     father_name varchar2(20) not null,
+  6     issued_by varchar2(20),
+  7     dob_on_pan date,
+  8     appid number unique,
+  9     foreign key (appid) references bank_applicant2
+ 10  );
+
+
+
+
+
+
+
+	Person
+	|
+	personId	name	age	gender	 passportNumber	issueDate  expiryDate   issuedBy nationality   
+	1		Vivek	21	M	T-123123123	10-May-18  10-May2028   IndGovt  Indian	        		
+
+
+
+
+
+
+
+	Person
+	|
+	personId	name	age	gender	
+	1		Vivek	21	M	
+	2		Samir	21	M	 		
+
+	Passport
+	|
+	passportNumber	issueDate  expiryDate   issuedBy nationality   pid
+	T-123123123	10-May-18  10-May2028   IndGovt  Indian	       1 		
+	T-623623623	10-May-18  10-May2028   IndGovt  Indian	       2
+
+
+
+
+
+
+
+
+
+
+
+create table Passport (passportNumber varchar2(20 char) not null, nationality varchar2(10 char), passportExpiryDate date, passportIssuedBy varchar2(20 char), passportIssuedDate date, person_personId number(10,0), primary key (passportNumber))
+Hibernate: create table Person (personId number(10,0) not null, age number(10,0), gender char(1 char), name varchar2(15 char), passport_passportNumber varchar2(20 char), primary key (personId))
+Hibernate: alter table Passport add constraint FKpirhiscplf73wxvoqxhgokpst foreign key (person_personId) references Person
+Hibernate: alter table Person add constraint FK8in7rm0jt19wixgutbwf8eecg foreign key (passport_passportNumber) references Passport
+
+
+
+	select  
+		passport0_.passportNumber as passportnumber1_1_0_, 
+		passport0_.nationality as nationality2_1_0_, 
+		passport0_.passportExpiryDate as passportexpirydate3_1_0_, 
+		passport0_.passportIssuedBy as passportissuedby4_1_0_, 
+		passport0_.passportIssuedDate as passportissueddate5_1_0_, 
+		passport0_.person_id as person_id6_1_0_, 
+
+		person1_.personId as personid1_2_1_, 
+		person1_.age as age2_2_1_, 
+		person1_.gender as gender3_2_1_, 
+		person1_.name as name4_2_1_ 
+
+		from passport2 passport0_ 
+		left outer join person2 person1_ 
+
+		on passport0_.person_id=person1_.personId 
+		where passport0_.passportNumber=?
+
+
+
+class PanCard {
+	String panNumber;
+	LocalDate dob;
+	String fatherName;
+	
+	@OneToOne
+	@JoinColumn(name="app_id")
+	BankApplicant bankApplicant;
+}
+public class BankApplicant { //BANK_APPLICANT
+	private int applicantNumber; //applicant_id
+	private String applicantName; // applicant_name
+	private String emailAddress; // applicant_email_address
+	private String mobile; //applicant_mobile_number
+	private String appliedFor;
+	private String applicationStatus;
+	private String address; //applicant_address
+	private Date birthdate; //applicant_dob;
+	
+	@OneToOne(mappedBy="bankApplicant")
+	private PanCard panCard;
+
+}
+
+
+
