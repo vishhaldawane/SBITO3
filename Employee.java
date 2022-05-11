@@ -20,7 +20,7 @@ public class Employee {
 	 @Column(name="ENAME",length=10)
 	 private String employeeName;
 	 
-	 @Column(name="JOB",length=9)
+	 @Column(name="JOB",length=15)
 	 private String job;
 	 
 	 @Column(name="MGR",length=4)
@@ -38,6 +38,25 @@ public class Employee {
 	 @ManyToOne
 	 @JoinColumn(name="DEPTNO")
 	 private Department department;
+
+	 public Employee() {
+		 
+	 }
+	 
+	 
+	public Employee(int employeeNumber, String employeeName, String job, Integer employeeManagerCode,
+			LocalDate joiningDate, Double basicSalary, Integer commission, Department department) {
+		super();
+		this.employeeNumber = employeeNumber;
+		this.employeeName = employeeName;
+		this.job = job;
+		this.employeeManagerCode = employeeManagerCode;
+		this.joiningDate = joiningDate;
+		this.basicSalary = basicSalary;
+		this.commission = commission;
+		this.department = department;
+	}
+
 
 	public int getEmployeeNumber() {
 		return employeeNumber;

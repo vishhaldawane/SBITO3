@@ -1,5 +1,9 @@
 package one2many;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 public class TestOneToMany {
 	DepartmentDAO deptDAO = new DepartmentDAOImpl();
@@ -59,4 +63,86 @@ public class TestOneToMany {
 			}//end of inner for - emp table
 			deptDAO.updateDepartment(department);
 	} //end of test case
+	
+	@Test
+	public void addNewEmployeesToExistingDepartmentTest()
+	{
+		Department department = deptDAO.findDepartmentById(40);
+		System.out.println(department.getDepartmentNumber()+
+		" "+department.getDepartmentName()+
+		" "+department.getDepartmentLocation());
+		System.out.println("=======================================");
+
+		List<Employee> newEmpList = new ArrayList<Employee>();
+		Employee emp1= new Employee(1111,"Sachin","Batsman",7839,LocalDate.now(),4444.0,155,department);
+		Employee emp2= new Employee(2222,"Sehvag","Batsman",7698,LocalDate.now(),5555.0,255,department);
+		Employee emp3= new Employee(3333,"Virat","Batsman",7788,LocalDate.now(),6666.0,355,department);
+		Employee emp4= new Employee(4444,"Dravid","Batsman",7566,LocalDate.now(),7777.0,455,department);
+		Employee emp5= new Employee(5555,"Dhoni","Batsman",7782,LocalDate.now(),8888.0,555,department);
+		newEmpList.add(emp1);
+		newEmpList.add(emp2);
+		newEmpList.add(emp3);
+		newEmpList.add(emp4);
+		newEmpList.add(emp5);
+		
+		department.setEmployeeList(newEmpList);
+		
+		deptDAO.updateDepartment(department);
+	}
+	
+	@Test
+	public void addNewEmployeesToNewDepartmentTest()
+	{
+		Department department = new Department();
+		department.setDepartmentNumber(60);
+		department.setDepartmentName("QMS");
+		department.setDepartmentLocation("Pune");
+		
+		System.out.println(department.getDepartmentNumber()+
+		" "+department.getDepartmentName()+
+		" "+department.getDepartmentLocation());
+		System.out.println("=======================================");
+
+		List<Employee> newEmpList = new ArrayList<Employee>();
+		Employee emp1= new Employee(6161,"Abhinav","Developer",7839,LocalDate.now(),8444.0,855,department);
+		Employee emp2= new Employee(6262,"Anand","Coder",7698,LocalDate.now(),8555.0,855,department);
+		Employee emp3= new Employee(6363,"Sruthi","Programmer",7788,LocalDate.now(),8666.0,855,department);
+		Employee emp4= new Employee(6464,"Deepa","Tester",7566,LocalDate.now(),8777.0,855,department);
+		Employee emp5= new Employee(6565,"Nidhi","Analyst",7782,LocalDate.now(),8888.0,855,department);
+		newEmpList.add(emp1);
+		newEmpList.add(emp2);
+		newEmpList.add(emp3);
+		newEmpList.add(emp4);
+		newEmpList.add(emp5);
+		
+		department.setEmployeeList(newEmpList);
+		
+		deptDAO.saveDepartment(department);
+	}
+	
+	@Test
+	public void assignNewDepartmentToExistingEmployeesTest()
+	{
+		Department newDepartment = new Department();
+		newDepartment.setDepartmentNumber(50);
+		newDepartment.setDepartmentName("IT");
+		newDepartment.setDepartmentLocation("Belapur");
+		
+		deptDAO.saveDepartment(newDepartment);
+		
+		List<Department> deptList = deptDAO.findAllDepartments();
+		for (Department department : deptList) {
+			List<Employee> existingEmpList = department.getEmployeeList();
+		//Assertions.assertTrue(existingEmpList.size()>0);
+			System.out.println(department.getDepartmentName()+" : existingEmpList : "+existingEmpList.size());
+			for (Employee  emp : existingEmpList) {
+				emp.setDepartment(newDepartment); //assigning the FK 
+			}
+			deptDAO.updateDepartment(department);
+		}
+		
+	}
 }
+
+
+

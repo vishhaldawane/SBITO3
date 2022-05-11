@@ -20,6 +20,19 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 		entityManager = factory.createEntityManager();
 	}
 	
+	public void saveDepartment(Department dept) {
+		EntityTransaction et= entityManager.getTransaction();
+		et.begin();
+			entityManager.persist(dept);
+		et.commit();
+	}
+	public void deleteDepartment(int deptno) {
+		EntityTransaction et= entityManager.getTransaction();
+		et.begin();
+			Department dept = entityManager.find(Department.class, deptno);
+			entityManager.remove(dept);
+		et.commit();
+	}
 	public Department findDepartmentById(int deptno)
 	{
 		return entityManager.find(Department.class,deptno);
