@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -35,6 +36,73 @@ public class Employee {
 	 private Integer commission;
 	 
 	 @ManyToOne
-	 @Column(name="DEPTNO")
+	 @JoinColumn(name="DEPTNO")
 	 private Department department;
+
+	public int getEmployeeNumber() {
+		return employeeNumber;
+	}
+
+	public void setEmployeeNumber(int employeeNumber) {
+		this.employeeNumber = employeeNumber;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public Integer getEmployeeManagerCode() {
+		return employeeManagerCode;
+	}
+
+	public void setEmployeeManagerCode(Integer employeeManagerCode) {
+		this.employeeManagerCode = employeeManagerCode;
+	}
+
+	public LocalDate getJoiningDate() {
+		return joiningDate;
+	}
+
+	public void setJoiningDate(LocalDate joiningDate) {
+		this.joiningDate = joiningDate;
+	}
+
+	public Double getBasicSalary() {
+		return basicSalary;
+	}
+
+	public void setBasicSalary(Double basicSalary) {
+		this.basicSalary = basicSalary;
+	}
+
+	public Integer getCommission() {
+		return commission;
+	}
+
+	public void setCommission(Integer commission) {
+		this.commission = commission;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	 
+	 
+	 
 }
