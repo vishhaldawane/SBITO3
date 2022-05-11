@@ -11,15 +11,22 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     
       
     <properties>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+     <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" /> -->
+      <property name="hibernate.dialect" value="    org.hibernate.dialect.Oracle12cDialect" />
       <property name="hibernate.show_sql" value="true" />
       <property name="hibernate.hbm2ddl.auto" value="update" />
       
        <!-- JDBC Database connection settings -->
-        <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
+        <!-- <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
         <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/xdb"/>
         <property name="javax.persistence.jdbc.user" value="SA"/>
         <property name="javax.persistence.jdbc.password" value=""/>
+         -->
+         
+        <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="javax.persistence.jdbc.user" value="system"/>
+        <property name="javax.persistence.jdbc.password" value="sysgitc"/>
         
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size" value="1" />
