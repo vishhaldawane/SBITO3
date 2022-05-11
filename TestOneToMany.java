@@ -120,27 +120,12 @@ public class TestOneToMany {
 		deptDAO.saveDepartment(department);
 	}
 	
+	EmployeeDAO empDAO = new EmployeeDAOImpl();
+	
 	@Test
-	public void assignNewDepartmentToExistingEmployeesTest()
+	public void changeDepartmentOfExistingEmployeesTest()
 	{
-		Department newDepartment = new Department();
-		newDepartment.setDepartmentNumber(50);
-		newDepartment.setDepartmentName("IT");
-		newDepartment.setDepartmentLocation("Belapur");
-		
-		deptDAO.saveDepartment(newDepartment);
-		
-		List<Department> deptList = deptDAO.findAllDepartments();
-		for (Department department : deptList) {
-			List<Employee> existingEmpList = department.getEmployeeList();
-		//Assertions.assertTrue(existingEmpList.size()>0);
-			System.out.println(department.getDepartmentName()+" : existingEmpList : "+existingEmpList.size());
-			for (Employee  emp : existingEmpList) {
-				emp.setDepartment(newDepartment); //assigning the FK 
-			}
-			deptDAO.updateDepartment(department);
-		}
-		
+		empDAO.changeDepartmentOfSpecificEmployees(30, 40);
 	}
 }
 

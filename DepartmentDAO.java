@@ -9,5 +9,4 @@ public interface DepartmentDAO {
 	void 			 updateDepartment(Department dept);
 	void 			 deleteDepartment(int deptno);
 	List<Department> findAllDepartments();
-	
 }
