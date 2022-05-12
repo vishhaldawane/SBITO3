@@ -1,11 +1,45 @@
 <html>
 	<head> 
 		<title>Bank Applicant </title>
+		<link rel="stylesheet" href="mystyles.css">
+		</link>
+
+		<script>
+
+			function clearUserError() {
+				document.getElementById("userErr").innerHTML="";
+
+			}
+			function clearPassError() {			
+				document.getElementById("passErr").innerHTML="";
+			}
+
+			function validateDetails() {
+				var u = document.getElementById("uname").value;
+				var p = document.getElementById("upass").value;
+				if(u=="") {
+				  document.getElementById("userErr").innerHTML="Username cannot be blank";
+				  return false;
+				}else {
+				  document.getElementById("userErr").innerHTML="";
+				}
+
+				if(p=="") {
+				  document.getElementById("passErr").innerHTML="Password cannot be blank";
+				  return false;
+				}
+				else {
+				  document.getElementById("passErr").innerHTML="";
+				}
+				
+				return true;
+			}
+		</script>
 	</head>
 
 	<body>
-	<h1 style="color:blue"> SBI </h1>
-	<h2 style="color:red"> Your Banking Needs Satified Here </h2>
+	<h1> SBI </h1>
+	<h2> Your Banking Needs Satified Here </h2>
 	<hr>
 	<h3 align=center style="color:green"> Login Here </h3>
 
@@ -13,14 +47,16 @@
 		<table align=center  border=5 cellspacing=10 cellpadding=10>
 		<tr>
 			<td>Enter username</td> 	   	 
-			<td><input type=text name="uname"> </td>
+			<td><input type=text name="uname" id="uname" onkeyup="clearUserError()"> </td>
+			<td><span id="userErr"></span></td>
 		</tr>
 		<tr>
 			<td>Enter password</td>
-			<td><input type=password name="upass"></td> 
-		</tr>
+			<td><input type=password name="upass" id="upass" onkeyup="clearPassError()"></td> 
+			<td> <span id="passErr"></span> </td>
+			</tr>
 		<td><a href="Home.html"> Home </a></td>  
-		<td><input type=submit name=submit value="Login"></td> 
+		<td><input type=submit name=submit value="Login" onClick="return validateDetails()"></td> 
 		</tr>
 		</table>	
 	</form>
