@@ -1,6 +1,42 @@
-Enter applicant id <input type="number" [(ngModel)]="bankApp.applicantId"><br>
+
+<table border="5" cellspacing="5" cellpadding="5">
+    <tr>
+        <th> DEPTNO </th>
+        <th> DNAME </th>
+        <th> LOC </th>
+    </tr>
+    <tr>
+        <td> Enter deptno </td> <td> <input type="number" [(ngModel)]="deptObj.deptno"> </td>
+        <td> Enter deptname</td> <td> <input type="text" [(ngModel)]="deptObj.dname"> </td>
+        <td> Enter location</td> <td> <input type="text" [(ngModel)]="deptObj.loc"> </td>
+        <td><button (click)="addDeptToArray()"> Add Dept </button> </td>
+    </tr>
+</table>
+
+
+<hr>
+<table border="5" cellspacing="5" cellpadding="5">
+    <tr>
+        <th> DEPTNO </th>
+        <th> DNAME </th>
+        <th> LOC </th>
+    </tr>
+    <tr *ngFor="let x of deptAry">
+        <td> {{x.deptno}} </td>
+        <td> {{x.dname}} </td>
+        <td> {{x.loc}} </td>
+        <td> <button> Approve </button> </td>
+        <td> <button> Reject </button> </td>
+        <td> <button (click)="deleteDeptFromArray(x)"> Delete </button> </td>
+    </tr>
+</table>
+
+
+
+
+<!-- Enter applicant id <input type="number" [(ngModel)]="bankApp.applicantId"><br>
 Enter Name <input type="string" [(ngModel)]="bankApp.applicantName"><br>
-Enter  Mobile <input type="number" [(ngModel)]="bankApp.applicantMobile"><br>
+Enter  Mobile <input type="string" [(ngModel)]="bankApp.applicantMobile"><br>
 Enter Birthdate <input type="date" [(ngModel)]="bankApp.birthDate"><br>
 Enter Email Address <input type="string" [(ngModel)]="bankApp.emailAddress"><br>
 Enter Permanent Address <input type="string" [(ngModel)]="bankApp.permAddress"><br>
@@ -12,4 +48,4 @@ Enter Account Applied For
 Enter Pan <input type="string" [(ngModel)]="bankApp.panCard"><br>
 Enter Annual Income <input type="number" [(ngModel)]="bankApp.annualIncome"><br>
 Enter Status <input type="string" [(ngModel)]="bankApp.applicantStatus"><br>
-<button>Apply</button>
+<button>Apply</button> -->
