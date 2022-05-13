@@ -1,0 +1,15 @@
+Enter applicant id <input type="number" [(ngModel)]="bankApp.applicantId"><br>
+Enter Name <input type="string" [(ngModel)]="bankApp.applicantName"><br>
+Enter  Mobile <input type="number" [(ngModel)]="bankApp.applicantMobile"><br>
+Enter Birthdate <input type="date" [(ngModel)]="bankApp.birthDate"><br>
+Enter Email Address <input type="string" [(ngModel)]="bankApp.emailAddress"><br>
+Enter Permanent Address <input type="string" [(ngModel)]="bankApp.permAddress"><br>
+Enter Account Applied For 
+    <select [(ngModel)]="bankApp.accountAppliedFor">
+        <option value="Savings">Savings</option>
+        <option value="Current">Current</option>
+    </select>  <br>
+Enter Pan <input type="string" [(ngModel)]="bankApp.panCard"><br>
+Enter Annual Income <input type="number" [(ngModel)]="bankApp.annualIncome"><br>
+Enter Status <input type="string" [(ngModel)]="bankApp.applicantStatus"><br>
+<button>Apply</button>
