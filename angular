@@ -1,0 +1,17 @@
+https://angular.io/guide/setup-local
+
+
+
+1. download node js from - download LTS
+https://nodejs.org/en/
+
+2. after installation of node
+try 
+node -v
+npm -v
+
+3. then install angular
+
+npm install -g @angular/cli
+
+
