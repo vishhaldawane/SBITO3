@@ -25,6 +25,24 @@
         <td> {{x.deptno}} </td>
         <td> {{x.dname}} </td>
         <td> {{x.loc}} </td>
+        <td>
+                <table border="5" cellspacing="5" cellpadding="5" *ngIf="x.empList.length>0">
+                    <tr>
+                        <th> EMPNO </th>
+                        <th> ENAME </th>
+                        <th> SALARY </th>
+                    </tr>
+                    <tr *ngFor="let e of x.empList" >
+                        <td> {{e.empno}} </td>
+                        <td> {{e.ename}} </td>
+                        <td> {{e.salary}} </td>
+                        <td> <img src={{e.epic}} height="150" width="150"/> </td>
+                        <td> <button> View Details </button> </td>
+                        <td> <button> Reject </button> </td>
+                        <td> <button> Delete </button> </td>
+                    </tr>
+                </table>
+        </td>
         <td> <button> Approve </button> </td>
         <td> <button> Reject </button> </td>
         <td> <button (click)="deleteDeptFromArray(x)"> Delete </button> </td>
