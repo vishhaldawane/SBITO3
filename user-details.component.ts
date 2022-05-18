@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserDetailsService } from '../user-details.service';
 import { UserDetails } from './UserDetails';
 
 @Component({
@@ -8,12 +10,23 @@ import { UserDetails } from './UserDetails';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private uds: UserDetailsService) { }
+  userList: UserDetails[] = [];
 
   ngOnInit(): void {
+    this.uds.loadAllUserDetailsService().subscribe(
+      (data)=> {
+          this.userList = data;
+          console.log(this.userList);
+      },
+      (err)=> {
+        console.log(err);
+      }
+    );
   }
+  
 
-  userList: UserDetails[] = [
+  /*userList: UserDetails[] = [
     {
       "id": 1,
       "name": "Leanne Graham",
@@ -244,5 +257,6 @@ export class UserDetailsComponent implements OnInit {
         "bs": "target end-to-end models"
       }
     }
-  ];
+  ];*/
+
 }
