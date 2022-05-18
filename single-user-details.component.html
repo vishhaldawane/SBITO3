@@ -1,0 +1,39 @@
+<h2> Showing User Details </h2>
+<input type="number" [(ngModel)]="anyNumber" (input)="loadSingleUserDetails(anyNumber)">
+<button (click)="loadSingleUserDetails(anyNumber)">Load Single User Details</button>
+<table border="5 cellspacing=5 cellpadding=5">
+    <tr>
+        <th>Id</th>
+        <th>Name,
+        UserName</th>
+        <th>Email  </th>
+        <th>Street,Suite,City,Zip</th>
+        <th>Latitude</th><th>Longitude</th>
+        <th>Phone</th><th>Website</th>
+        <th>Company Name</th><th>Catch Phrase</th>
+        <th>BS</th>
+    </tr>
+    <tr>
+        
+        <td>  {{userDetails.id}}        </td>
+
+        <td>  {{userDetails.name}},  {{userDetails.username}}  </td>          
+
+        <td>  {{userDetails.email}}  </td>
+
+        <td>
+          {{userDetails.address.street}}, 
+          {{userDetails.address.suite}},  
+          {{userDetails.address.city}},  
+          {{userDetails.address.zipcode}}  </td>
+
+        <td>  {{userDetails.address.geo.lat}}  </td>
+        <td>  {{userDetails.address.geo.lng}}  </td>
+        <td>  {{userDetails.phone}}  </td>
+        <td>  {{userDetails.website}}  </td>
+        <td>  {{userDetails.company.name}}  </td>
+        <td>  {{userDetails.company.catchPhrase}}  </td>
+        <td>  {{userDetails.company.bs}}  </td>
+    </tr>
+</table>
+
