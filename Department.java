@@ -1,65 +1,35 @@
-package one2many;
+package com.sbi;
 
-import java.util.List;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.sql.DataSource;
 
-@Entity
-@Table(name="dept")
 public class Department {
+
+	DataSource dataSource;
 	
-	@Id
-	@Column(name="deptno")
-	int departmentNumber;
-	
-	@Column(name="dname")
-	String departmentName;
-	
-	@Column(name="loc")
-	String departmentLocation;
-	
-	//eager loading vs lazy loading
-	
-	@OneToMany(mappedBy="department", fetch = FetchType.EAGER, cascade = CascadeType.ALL )
-	private List<Employee> employeeList;
-
-	public int getDepartmentNumber() {
-		return departmentNumber;
+	public void setDataSource(DataSource ds) {
+		this.dataSource = ds;
 	}
-
-	public void setDepartmentNumber(int departmentNumber) {
-		this.departmentNumber = departmentNumber;
+	public void showAllDepartments() {
+		try {
+			Connection conn = dataSource.getConnection();
+			Statement st= conn.createStatement();
+			ResultSet rs = st.executeQuery("select * from dept");
+			while(rs.next()) {
+				System.out.println("DEPTNO : "+rs.getInt(1));
+				System.out.println("DNAME  : "+rs.getString(2));
+				System.out.println("LOC    : "+rs.getString(3));
+				System.out.println("------------------");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
-
-	public String getDepartmentName() {
-		return departmentName;
-	}
-
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
-
-	public String getDepartmentLocation() {
-		return departmentLocation;
-	}
-
-	public void setDepartmentLocation(String departmentLocation) {
-		this.departmentLocation = departmentLocation;
-	}
-
-	public List<Employee> getEmployeeList() {
-		return employeeList;
-	}
-
-	public void setEmployeeList(List<Employee> employeeList) {
-		this.employeeList = employeeList;
-	}
-	
-	
 }
