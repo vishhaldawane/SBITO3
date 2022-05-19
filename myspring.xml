@@ -10,4 +10,15 @@
 	   xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx">
 	
+	<bean id="x" class="com.sbi.Car" scope="singleton">
+		<constructor-arg ref="y"/>
+	</bean>
+	
+	<bean id="y" class="com.sbi.Engine">
+		<constructor-arg ref="z"/>
+	</bean>
+	
+	<bean id="z" class="com.sbi.Piston">
+	</bean>
+	
 </beans>	
