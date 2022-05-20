@@ -1,0 +1,16 @@
+	
+
+  	DB
+	|
+	pojo
+	   |
+	   +---- repositories - repo1 repo2 repo3 repo4 .....
+			|
+			|
+		    services  - service1 service2 service3
+			|
+		 controllers - PayeeController, ApplicantController,
+		 |		TransferController, StatementController
+		 |
+		 |  myHttp.get("ip of spring controller");
+		angular pages

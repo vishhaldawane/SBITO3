@@ -1,0 +1,67 @@
+
+		Hibernate
+		|
+	--------------------------------------------------------
+	|		|		|		|
+	META-INF	pojo		pom.xml	EntityManagerFactory
+	|					EntityManager
+	persistence.xml				EntityTransaction
+	drv/url/urs/pass
+	hbm2ddl=create/update				
+
+				Spring
+				|
+	-------------------------------------------------------------
+	|3			|2		|1		|4		
+myspring.xml  			Pojo		pom.xml		Container 
+	|			|		READY		|						
+configure your car object here  Car/Engine/Piston
+configure your engine object  here
+configure your piston object here
+wire their dependencies
+
+
+			mind
+		<-			->
+	past		timeless		future
+	|					|
+-----------------			----------------
+|		|			|		|
+good		bad			good		bad
+|
+---
+| |
+-- 
+
+
+
+	Person - begger -> asking for a food
+			<-- offered 
+
+
+
+
+
+	- What is a bean / POJO 
+	- must be in a package
+	- public class
+	- public default ctor
+	- must have private data
+	- must have setter/getters
+
+
+----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
