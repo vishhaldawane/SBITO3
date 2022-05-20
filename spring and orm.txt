@@ -1,0 +1,53 @@
+
+
+	spring with orm support - thats it 
+
+			MySpringProject
+			|
+	-------------------------------------------------
+	|	|	|		|		|
+	|    META-INF  com.sbi.dept  myspring5.xml	com.sbi.test
+	|    |(2)	|		(3)		|(5)
+	|persistence.xml|				DepartmentTest
+	|		|(4)			
+	pom.xml		Department <-- @Component + @Entity + @Table
+	|(1)		DepartmentRepository <-- @Repository
+	is 		DepartmentRepositoryImpl <-- @Repository
+	already		[ same like DAO pattern in core java ]
+	upto date
+				REVIEW IT - 
+
+
+	1. step 1 is done - pom.xml is ready
+	2. META-INF/persistence.xml
+		let me copy it from our previous project
+		- we have "MyJPA" in this file
+
+	3. myspring5.xml
+		<context:component-scan base-package="com.sbi.dept"/>
+
+	4. so lets create the package 
+			com.sbi.dept
+
+	5. now make 3 main things
+		Department
+		DepartmentRepository <--naming convention is NOT->DAO
+			- well any name would do..
+			- recommondation is->Repository as ending word
+		DepartmentRepositoryImpl
+
+		Observe the @Repository annotation both
+		at interface and class
+
+	@Repository
+	MusicalIntrument
+	|
+	@Repository("strings");
+	class Guitar {
+	}
+
+	MusicalIntrument m  = (MusicalIntrument) container.getBean("drum");
+	Guitar g  = (Guitar) container.getBean("drum");
+
+
+	
