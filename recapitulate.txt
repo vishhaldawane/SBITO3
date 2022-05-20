@@ -1,0 +1,348 @@
+
+
+			Java Technology
+				|
+		-----------------------------------
+		|		|		|
+		jse		jee		jme
+		|
+	----------
+	|
+language fundamentals
+data types
+byte,short,int,long
+float,double,boolean,char
+String
+Byte.SIZE
+Classes and Objects	
+|		|	
+blueprint  instance of a
+of object  class
+ASSOCIATION
+	|
+isA hasA usesA producesA
+
+interface Washing { 
+	Laundry wash(Cloth c[], WashingPowder wp, Power p, Water w); 
+}
+
+interface Spinning { 
+	void spin();
+}
+interface Cleaning { 
+	void clean();
+}
+class Machine { }
+class WashingMachine extends Machine implements Washing, Spinning, Cleaning//isA
+{
+	WashingTub washTub = new WashingTub(); //hasA
+	public Laundry wash(Cloth c[], WashingPowder wp, Power p, Water w) {
+		...
+		..
+		spin();
+		Laundry laundry = new Laundry();
+		return laundry;
+	}
+	public void spin() { } //implemented
+	public void clean() { }
+	public void fuzzyWash() { } //exclusive
+}
+interface Talking
+{
+	void talk();
+}
+class FullyAutomaticWashingMachine extends WashingMachine implements Talking
+{
+	void talk() {
+		put more water...
+	}
+}
+
+1. void clear()
+2. void goto(int,int)
+3. float findAvg(int,int,int)
+4. char acceptAnswer()
+
+	1. implemented
+	2. inherited
+	3. exclusive
+	4. overridden
+
+	final	static 			abstract
+	|	|				|
+	|	share-able across		abstract method-partial contract
+	|	all the object of		abstract class- contains the partial contract
+	|	the class, static kiteCount
+	field		|				abstract class A { }
+	final PI	static showKiteCount()
+	|						interfaces
+	final moveBishop() { }				interface A { 
+	|							default void fun() {  }  
+	|							void foo();
+	|							int i=10;//public static final
+	|						}
+	final GraphicalChess				class B implements A {
+	
+							}
+
+	packages
+	access specifiers
+		private	protected	public	[default]
+	
+	exception handling
+		unchecked		vs	checked
+		manual lock			automatic lock 	
+	
+				T
+				|
+			Err	Exception
+				| checked
+			---------------------
+			|		|
+		RuntimeException
+		| unchecked
+
+					Object
+					   |
+					Component
+					   |
+					Container
+	multithreading			   |
+					 Window
+			Runnable	   |
+			|run();		  Frame
+		------------------------+  |
+		|			|  |
+		Thread			MyFrame
+		|start() { }-> TS
+		|run(){ }
+		|
+	-------------------------
+	|	|	|
+	Car	Train	Flight
+	run	run	run
+
+
+	synchronized
+	Teller1		Teller2		Teller3
+	|		|		|
+	run		run		run
+	
+	Collection
+	|
+	List		Set
+	|		|
+	AL LL		TS HS
+
+	Comparable
+
+	TreeSet ts = new TreeSet();
+
+	ts.add(10);
+	ts.add(20);
+	ts.add(5);
+	ts.add(8);
+	ts.add(3);
+	ts.add(23);
+	ts.add(18);
+
+			10 <-- ROOT OF THE TREE
+			|
+		-----------------------------
+		|			|
+		5			20
+		|			|
+	----------------	-----------------
+	|		|	|		|
+	3		8	18		23
+
+
+
+
+
+
+	class Song implements Comparable
+	{
+		title
+		album
+		artist
+		year
+
+		int compareTo(Song x) {
+			return title.compare(x.title);
+		}		|		|
+	}			Kolavari	Backstreet Boys
+				Kolavari	Zinghat
+
+	TreeSet ts = new TreeSet();
+
+	Song s1 = new Song("Kolavari");
+	Song s2 = new Song("Backstreet Boys");
+	Song s3 = new Song("Zhingat"); 
+	Song s4 = new Song();
+	Song s5 = new Song();
+	Song s6 = new Song();
+
+
+	ts.add(s1); <-- will throw an error
+	ts.add(s2);
+	ts.add(s3);
+	ts.add(s4);
+	ts.add(s5);
+	ts.add(s6);
+
+			s1 <-- ROOT OF THE TREE
+			|
+		-----------------------------
+		|			|
+					
+		|			|
+	----------------	-----------------
+	|		|	|		|
+	
+
+	Comparable 		vs		Comparator
+
+
+	add ChemicalElement's elements  into the TreeSet
+	add Book's objects into the HashSet
+
+
+	JDBC
+	|
+	Driver
+	DriverManager
+	Connection
+		|	
+	--------------------------------------------------
+	|			|			|
+	Statement	PrepredStatement	CallableStatement
+	SELECT		insert/update/delete	procedure/function
+
+	SelectTest
+	SelectWithWhereTest
+	InsertTest
+	UpdateTest
+	DeleteTest
+
+	DAO design pattern
+	Department	DepartmentDAO		DepartmentDAOImpl
+	|		|			|
+	deptno		CRUD methods		Crud Methods impl
+	dname
+	loc
+	
+	------------------------------------
+
+	SQL
+		DQL -select
+		DDL - create, alter, drop, truncate 
+		DML - i/u/d
+		TCL - transaction - rollback/commit
+		DCL - grant and revoke
+
+	PLSQL
+
+  create or replace procedure fund_transfer(sa number, ta number, amt number)
+   as
+      sb number;
+      tb number;
+    begin
+       SELECT ACBAL INTO SB FROM ACCOUNTS WHERE ACNO=SA;
+       SELECT ACBAL INTO TB FROM ACCOUNTS WHERE ACNO=TA;
+       dbms_output.put_line('Source balance : '||sb);
+       dbms_output.put_line('Target balance : '||tb);
+      dbms_output.put_line('Transferring funds....');
+
+      if amt > sb
+      then
+	      dbms_output.put_line('insufficient funds....');
+      else
+            update accounts set acbal=acbal-amt where acno=sa;
+            update accounts set acbal=acbal+amt where acno=ta;
+            commit;
+            dbms_output.put_line('-- TRANSFER SUCCESSFUL --');
+      END IF;
+   END;
+  /
+
+
+
+SQL> SHOW ERR
+Errors for PROCEDURE FUND_TRANSFER:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+8/4      PL/SQL: Statement ignored
+8/4      PLS-00201: identifier 'DBMS_OUPUT.PUT_LINE' must be declared
+9/4      PL/SQL: Statement ignored
+9/4      PLS-00201: identifier 'DBMS_OUPUT.PUT_LINE' must be declared
+10/4     PL/SQL: Statement ignored
+10/4     PLS-00201: identifier 'DBMS_OUPUT.PUT_LINE' must be declared
+13/4     PL/SQL: Statement ignored
+13/4     PLS-00201: identifier 'DBMS_OUPUT.PUT_LINE' must be declared
+18/10    PL/SQL: Statement ignored
+18/10    PLS-00201: identifier 'DBMS_OUPUT.PUT_LINE' must be declared
+S'
+
+
+	ORM
+
+	classes are not tables
+	tables are not classes
+
+	create table accounts
+	()
+	|
+	ORM
+	|
+	public class Accounts extends... implements...
+	{
+		isa hasa usesa producesa
+		set/get
+	}
+
+
+				ORMAPPLICATION	
+				|
+	----------------------------------------
+	|		|			|
+	POJO		META-INF		Test
+	mapped		|			|
+	with		persistence.xml		EntityManagerFactory
+	Table					EntityManager
+						|
+			----------------------------------------------------------------
+			|	|	|	|		|
+			persist	merge	find	createQuery	remove
+
+						EntityTransaction
+
+						
+	@OneToOne
+	@OneToMany	@ManyToOne
+
+	@ManyToMany			
+
+=================================================================
+	Angular
+	|
+	
+	Component  Decorator	Service	 Module	Pipe
+				|
+				HttpClient
+
+=================================================================
+
+	Spring
+	-----------
+	
+	
+
+
+
+
+
+
+
+
