@@ -30,19 +30,50 @@ export class DepartmentComponent implements OnInit {
   }
   
   message!:string;
-  
+
   addDept() {
     this.deptService.addSingleDepartmentsService(this.dept).subscribe(
       (data) => {
-        alert(data);
-        this.message = JSON.stringify(data);
+        console.log('department is added');
+        //this.message=data;
+        //console.log(this.message);
       },
       (err) => {
-        alert(err);
         this.message=err.error;
         console.log(err);
-
+        //alert(this.message);
       }
     );
+  }
+
+  editDept(deptObj:Department) {
+      this.deptService.updateSingleDepartmentsService(deptObj).subscribe(
+        (data) => {
+          console.log('department is updated');
+          //this.message=data;
+          //console.log(this.message);
+        },
+        (err) => {
+          this.message=err.error;
+          console.log(err);
+          //alert(this.message);
+        } 
+      );
+  }
+
+  deleteThis(x: number) {
+    this.deptService.deleteSingleDepartmentService(x).subscribe(
+      (data) => {
+        console.log('department is deleted');
+        //this.message=data;
+        //console.log(this.message);
+      },
+      (err) => {
+        this.message=err.error;
+        console.log(err);
+        //alert(this.message);
+      } 
+    );
+
   }
 }

@@ -6,25 +6,26 @@
         <td><input type=number [(ngModel)]="dept.departmentNumber"></td>
         <td><input type=string [(ngModel)]="dept.departmentName"></td>
         <td><input type=string [(ngModel)]="dept.departmentLocation"></td>
-        <td><button (click)="addDept()">ADD</button></td> <td><span>{{message}}</span></td>
+        <td><button (click)="addDept()">ADD</button></td> 
+        <td><span>{{message}}</span></td>
     </tr>
         
-    <tr *ngFor="let dept of allDepts">
+    <tr *ngFor="let deptObj of allDepts">
         
         <td>
-                {{dept.departmentNumber}}
+                {{deptObj.departmentNumber}}
         </td>
         <td>
-                {{dept.departmentName}}
+               <input type="text" [(ngModel)]="deptObj.departmentName">
         </td>
         <td>
-                {{dept.departmentLocation}}
+                <input type="text" [(ngModel)]="deptObj.departmentLocation">
         </td>
         <td>
-                <button>EDIT</button>
+                <button (click)="editDept(deptObj)">EDIT</button>
         </td>
         <td>
-                <button>DELETE</button>
+                <button (click)="deleteThis(deptObj.departmentNumber)">DELETE</button>
         </td>
     </tr>
 </table>

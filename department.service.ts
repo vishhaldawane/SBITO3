@@ -20,7 +20,7 @@ export class DepartmentService {
   }
   addSingleDepartmentsService(dept:Department) : Observable<string> { // localhost:4200
     console.log('addSingleDepartmentsService() invoked.....');
-    return this.myHttp.post<string>("http://localhost:8080/depts/addDept/",dept);
+    return this.myHttp.post<string>("http://localhost:8080/depts/addDept/",dept,{responseType:'json'});
   }
   updateSingleDepartmentsService(dept:Department) : Observable<string> { // localhost:4200
     console.log('addSingleDepartmentsService() invoked.....');
