@@ -20,16 +20,16 @@ export class DepartmentService {
   }
   addSingleDepartmentsService(dept:Department) : Observable<string> { // localhost:4200
     console.log('addSingleDepartmentsService() invoked.....');
-    return this.myHttp.post<string>("http://localhost:8080/depts/addDept/",dept,{responseType:'json'});
+    return this.myHttp.post<string>("http://localhost:8080/depts/addDept/",dept,{ responseType: 'text' as 'json'});
   }
   updateSingleDepartmentsService(dept:Department) : Observable<string> { // localhost:4200
     console.log('addSingleDepartmentsService() invoked.....');
-    return this.myHttp.put<string>("http://localhost:8080/depts/updateDept/",dept);
+    return this.myHttp.put<string>("http://localhost:8080/depts/updateDept/",dept,{ responseType: 'text' as 'json'});
   }
 
   deleteSingleDepartmentService(x:number) : Observable<string> { // localhost:4200
     console.log('deleteSingleDepartmentService() invoked.....');
-    return this.myHttp.delete<string>("http://localhost:8080/depts/deleteDept/"+x);
+    return this.myHttp.delete<string>("http://localhost:8080/depts/deleteDept/"+x,{ responseType: 'text' as 'json'});
   }  
   
 }
