@@ -1,0 +1,35 @@
+<form [formGroup]="requiredForm" novalidate>
+    <input type="text"      placeholder="Enter username"    formControlName="uname">
+    <div *ngIf="requiredForm.controls['uname'].invalid && requiredForm.controls['uname'].touched">
+        <div *ngIf="requiredForm.controls['uname'].errors">
+            Name is required
+        </div>
+    </div>
+    <br>
+    <input type="password"  placeholder="Enter password"    formControlName="upass">
+    <div *ngIf="requiredForm.controls['upass'].invalid && requiredForm.controls['upass'].touched">
+        <div *ngIf="requiredForm.controls['upass'].errors">
+            Password is required
+        </div>
+    </div>
+    <br>
+    <input type="number"    placeholder="Enter age"         formControlName="uage">
+    <div *ngIf="requiredForm.controls['uage'].invalid && requiredForm.controls['uage'].touched">
+        <div *ngIf="requiredForm.controls['uage'].errors">
+            Age is required
+        </div>
+    </div>
+    <br>
+    <input type="text"      placeholder="Enter address"     formControlName="uaddress">
+    <div *ngIf="requiredForm.controls['uaddress'].invalid && requiredForm.controls['uaddress'].touched">
+        <div *ngIf="requiredForm.controls['uaddress'].errors">
+            User Address is required
+        </div>
+    </div>
+    <br>
+    <br>
+    <input type="submit" value="SUBMIT">
+</form>
+
+<p> Form Value  : {{ requiredForm.value | json }}</p>
+<p> Form Status : {{ requiredForm.status | json }}</p>
